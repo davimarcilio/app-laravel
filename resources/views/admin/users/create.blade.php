@@ -1,11 +1,12 @@
-@extends('admin.layouts.app')
-@section('title', 'Criar usuário')
-    
-@section('content')
- <h1>Novo usuário</h1>
-   {{-- @include('admin.includes.errors') --}}
-    
-    <form action="{{route('users.store')}}" method="POST">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            Novo usuário
+        </h2>
+    </x-slot>
+    {{-- @include('admin.includes.errors') --}}
+
+    <form action="{{ route('users.store') }}" method="POST">
         @include('admin.users.partials.form')
     </form>
-@endsection
+</x-app-layout>

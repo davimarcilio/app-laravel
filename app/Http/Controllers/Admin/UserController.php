@@ -54,7 +54,7 @@ class UserController extends Controller
             return back()->with('message', 'Usuário não encontrado');
         }
 
-        return $user;
+        return view('admin.users.show', compact('user'));
     }
     public function destroy(string $id) {
 
