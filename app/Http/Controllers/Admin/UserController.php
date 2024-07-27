@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -56,6 +57,11 @@ class UserController extends Controller
         return $user;
     }
     public function destroy(string $id) {
+
+        // if (Gate::denies('is-admin')) {
+        //     return back()->with('message', 'Você não é um administrador');
+        // }
+
         $user = User::find($id);
 
         if (!$user) {

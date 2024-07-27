@@ -8,9 +8,14 @@
         <li>Nome: {{$user->name}}</li>
         <li>Email: {{$user->email}}</li>
     </ul>
+    {{-- @can('is-owner', $user)
+        pode deletar
+    @endcan --}}
+    @can('is-admin')
     <form action="{{route('users.destroy', $user->id)}}" method="POST">
         @csrf()
         @method('delete')
         <button type="submit">Apagar</button>
     </form>
+    @endcan
 @endsection
