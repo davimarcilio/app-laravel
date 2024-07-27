@@ -45,4 +45,29 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Usuário editado com sucesso');
 
     }
+
+    public function show(string $id) {
+        $user = User::find($id);
+
+        if (!$user) {
+            return back()->with('message', 'Usuário não encontrado');
+        }
+
+        return $user;
+    }
+    public function destroy(string $id) {
+        $user = User::find($id);
+
+        if (!$user) {
+            return back()->with('message', 'Usuário não encontrado');
+        }
+if (auth()->user()->id === $user->id) {
+    return back()->with('message', 'Você não pode deletar seu próprio perfil');
+
+}
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'Usuário apagado com sucesso');
+
+    }
 }

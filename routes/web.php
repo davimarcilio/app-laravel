@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::delete('/users/{userId}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('/users/{userId}', [UserController::class, 'show'])->name('users.show');
 Route::put('/users/{userId}', [UserController::class, 'update'])->name('users.update');
 Route::get('/users/{userId}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

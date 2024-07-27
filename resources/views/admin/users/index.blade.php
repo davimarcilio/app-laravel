@@ -18,6 +18,7 @@
            <td>{{$item->email}}</td>
            <td>
             <a href="{{route('users.edit', $item)}}">Editar</a>
+            <a href="{{route('users.show', $item)}}">Detalhes</a>
            </td>
        </tr>
        @empty 
