@@ -3,9 +3,7 @@
 
 @section('content')
 <h1>Usuários</h1>
-@if (session()->has('success'))
-    {{ session('success') }}
-@endif
+<x-alert />
 <a href="{{route('users.create')}}">Adicionar novo usuário</a>
 <table>
     <thead>
