@@ -16,7 +16,9 @@
        <tr>
            <td>{{$item->name}}</td>
            <td>{{$item->email}}</td>
-           <td>-</td>
+           <td>
+            <a href="{{route('users.edit', $item)}}">Editar</a>
+           </td>
        </tr>
        @empty 
         <tr>
